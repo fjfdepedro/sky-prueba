@@ -1,6 +1,10 @@
 require File.expand_path('../boot', __FILE__)
 
-require 'rails/all'
+#require 'rails/all'
+require "action_controller/railtie"
+require "action_mailer/railtie"
+#require "active_resource/railtie"
+require "rails/test_unit/railtie"
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -19,5 +23,16 @@ module SkyFootage
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
+
+    config.encoding = "utf-8"
+
+    # Enable the asset pipeline
+    config.assets.enabled = true
+
+    
+    # Version of your assets, change this if you want to expire all your assets
+    config.assets.version = '1.0'
+    # Prevent initializing the application before assets are precompiled (required for heroku)
+    config.assets.initialize_on_precompile = false
   end
 end
